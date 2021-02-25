@@ -1,6 +1,6 @@
 package bookingSystem;
 
-public class room {
+public class Room {
 	private int beds;
 	private double pricePerNight;
 	private int roomNumber;

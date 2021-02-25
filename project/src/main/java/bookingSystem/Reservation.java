@@ -1,6 +1,6 @@
 package bookingSystem;
 
-public class reservation {
+public class Reservation {
 	private String regName;
 	private int regAge;
 	private int adults; 
@@ -8,6 +8,7 @@ public class reservation {
 	private int nights;
 	
 	
+	public 
 	
 	public String getRegName() {
 		return regName;
@@ -54,6 +55,7 @@ public class reservation {
 	public boolean isValidAge(int age) {
 		return age >= 18 && age <= 100;
 	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
