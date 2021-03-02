@@ -7,6 +7,17 @@ public class Room {
 	private int floorNumber;
 	private boolean available;
 	
+	public Room(int beds, double pricePerNight, int roomNumber, int floorNumber, boolean available) {
+		this.beds = beds;
+		this.pricePerNight = pricePerNight;
+		this.roomNumber = roomNumber;
+		this.floorNumber = floorNumber;
+		this.available = available;
+	}
+	
+	public Room() {
+	}
+	
 	public int getBeds() {
 		return beds;
 	}
