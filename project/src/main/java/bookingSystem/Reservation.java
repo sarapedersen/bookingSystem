@@ -6,9 +6,16 @@ public class Reservation {
 	private int adults; 
 	private int children;
 	private int nights;
+	private Room roomType;
 	
-	
-	public 
+	public Reservation(String regName, int regAge, int adults, int children, int nights, Room roomType) {
+		this.regName = regName;
+		this.regAge = regAge;
+		this.adults = adults;
+		this.children = children;
+		this.nights = nights;
+		this.roomType = roomType;
+	}
 	
 	public String getRegName() {
 		return regName;
