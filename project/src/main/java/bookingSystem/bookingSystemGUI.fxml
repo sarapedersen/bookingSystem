@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -29,7 +28,7 @@
       </HBox>
       <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#checkInPaneShow" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
+            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
                <font>
                   <Font name="Times New Roman" size="19.0" />
                </font>
@@ -87,40 +86,52 @@
          <children>
             <VBox layoutX="43.0" layoutY="132.0" prefHeight="288.0" prefWidth="540.0">
                <children>
-                  <Pane fx:id="paneRoom1" prefHeight="97.0" prefWidth="540.0">
+                  <Pane prefHeight="97.0" prefWidth="540.0">
                      <children>
+                        <Label layoutX="130.0" layoutY="39.0" prefHeight="50.0" prefWidth="274.0" text="Dobbelseng eller to enkeltsenger. Romstørrelse: 24 m² Pris per natt: 1024,-" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                         <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextArea fx:id="descRoom1" layoutX="130.0" layoutY="36.0" prefHeight="50.0" prefWidth="281.0" />
-                        <Label fx:id="titleRoom1" layoutX="130.0" layoutY="11.0" prefHeight="27.0" prefWidth="225.0" text="Enkelt rom">
+                        <Label layoutX="130.0" layoutY="11.0" prefHeight="27.0" prefWidth="225.0" text="Standardrom">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnRoom1" layoutX="449.0" layoutY="61.0" mnemonicParsing="false" text="Velg rom" />
+                        <Button fx:id="btnRoom1" layoutX="433.0" layoutY="61.0" mnemonicParsing="false" text="Velg rom" />
                      </children>
                   </Pane>
-                  <Pane fx:id="paneRoom2" prefHeight="97.0" prefWidth="540.0">
+                  <Pane prefHeight="97.0" prefWidth="540.0">
                      <children>
-                        <TextArea fx:id="descRoom2" layoutX="130.0" layoutY="32.0" prefHeight="50.0" prefWidth="281.0" />
-                        <Label fx:id="titleRoom2" layoutX="130.0" layoutY="4.0" prefHeight="27.0" prefWidth="225.0" text="Enkelt rom">
+                        <Label layoutX="130.0" layoutY="10.0" prefHeight="27.0" prefWidth="225.0" text="Superior-rom">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="449.0" layoutY="57.0" mnemonicParsing="false" text="Velg rom" />
+                        <Button fx:id="btnRoom2" layoutX="433.0" layoutY="57.0" mnemonicParsing="false" text="Velg rom" />
                         <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="130.0" layoutY="38.0" prefHeight="50.0" prefWidth="274.0" text="Ekstra fasiliteter. Dobbelseng eller to enkeltsenger. Romstørrelse: 30 m². Pris per natt: 1495,-" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="paneRoom3" prefHeight="97.0" prefWidth="540.0">
+                  <Pane prefHeight="97.0" prefWidth="540.0">
                      <children>
                         <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextArea fx:id="descRoom3" layoutX="130.0" layoutY="36.0" prefHeight="50.0" prefWidth="281.0" />
-                        <Label fx:id="titleRoom3" layoutX="130.0" layoutY="11.0" prefHeight="27.0" prefWidth="225.0" text="Enkelt rom">
+                        <Label layoutX="130.0" layoutY="11.0" prefHeight="27.0" prefWidth="225.0" text="Premium-rom">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="449.0" layoutY="59.0" mnemonicParsing="false" text="Velg rom" />
+                        <Button fx:id="btnRoom3" layoutX="433.0" layoutY="61.0" mnemonicParsing="false" text="Velg rom" />
+                        <Label layoutX="130.0" layoutY="36.0" prefHeight="50.0" prefWidth="274.0" text="Egen espresso maskin på rommet. Kingsize seng Romstørrelse: 35 m². Pris per natt:  1749-,-" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                </children>
