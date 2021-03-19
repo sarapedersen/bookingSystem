@@ -30,9 +30,8 @@ public class Hotel {
 				+ "sengetype: to enkeltsenger eller én dobbelseng\r\n"
 				+ "størrelse: 24 m²");
 		
-		Reservation r1 = new Reservation();
-		r1.setRoom(standard);
-		r1.checkIn(LocalDate.of(2021, Month.MARCH, 20), 7);
+//		Reservation r1 = new Reservation("Sara", 22, 2, 4, standard, LocalDate.of(2021, Month.MARCH, 20));
+//		System.out.println(r1.toString());
 		
 		
 	}

@@ -7,20 +7,20 @@ import java.util.List;
 public class Reservation {
 	private String regName;
 	private int regAge;
-	private int adults; 
-	private int children;
+	private int persons;
 	private int nights;
 	private Room room;
 	
-//	public Reservation(String regName, int regAge, int adults, int children, int nights, Room room) {
-//		this.regName = regName;
-//		this.regAge = regAge;
-//		this.adults = adults;
-//		this.children = children;
-//		this.nights = nights;
-//		this.room = room;
-//	
-//	}
+	public Reservation(String regName, int regAge, int persons, int nights, Room room, LocalDate checkInDate) {
+		validAgeCheck(regAge);
+		this.regName = regName;
+		this.regAge = regAge;
+		this.persons = persons;
+		this.nights = nights;
+		this.room = room;
+		checkIn (checkInDate, nights);
+	
+	}
 	
 	public void checkIn(LocalDate date, int days) {
 		if (!date.isBefore(LocalDate.now()) && this.room.isAvailable(date, days)) {					//ved gyldig dato:
@@ -32,55 +32,27 @@ public class Reservation {
 		}
 	}
 	
-	public void setRoom(Room room) {
-		this.room = room;
-	}
 	
 	public String getRegName() {
 		return regName;
 	}
 
-	public void setRegName(String regName) {
-		this.regName = regName;
-	}
 
 	public int getRegAge() {
 		return regAge;
 	}
 
-	public void setRegAge(int regAge) {
-		isValidAge(regAge);
-		this.regAge = regAge;
-	}
-
-	public int getAdults() {
-		return adults;
-	}
-
-	public void setAdults(int adults) {
-		this.adults = adults;
-	}
-
-	public int getChildren() {
-		return children;
-	}
-
-	public void setChildren(int children) {
-		this.children = children;
-	}
-
-	public int getNights() {
-		return nights;
-	}
-
-	public void setNights(int nights) {
-		this.nights = nights;
-	}
-
 	
-	public boolean isValidAge(int age) {
-		return age >= 18 && age <= 100;
+	public void validAgeCheck(int age) {
+		if (age < 18 || age > 100) {
+			throw new IllegalArgumentException("Ugyldig alder! Du må være minst 18 år for å legge inn en reservasjon");
+		}
 	}
+	
+//	@Override
+//	public String toString() {
+//		return String.format("Navn: %s, Alder: %d, Antall personer: %d, Antall netter: %d, rom: ", regName, regAge, nights, persons);
+//	}
 	
 
 	public static void main(String[] args) {
