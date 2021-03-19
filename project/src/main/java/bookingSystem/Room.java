@@ -1,21 +1,42 @@
 package bookingSystem;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Room {
+	private String title;
 	private int beds;
 	private double pricePerNight;
-	private int roomNumber;
-	private int floorNumber;
-	private boolean available;
+	private String description;
+	protected List<LocalDate> calendar = new ArrayList<>();
 	
-	public Room(int beds, double pricePerNight, int roomNumber, int floorNumber, boolean available) {
+	public Room(String title, int beds, double pricePerNight, String description) {
+		this.title = title;
 		this.beds = beds;
 		this.pricePerNight = pricePerNight;
-		this.roomNumber = roomNumber;
-		this.floorNumber = floorNumber;
-		this.available = available;
+		this.description = description;
 	}
 	
 	public Room() {
+	}
+	
+	//Det her må kunne skrives enklere!
+	
+	public boolean isAvailable(LocalDate date, int days) {
+		List<LocalDate> dates = new ArrayList<>();
+		for (int i= 0; i < days; i++) {
+			dates.add(date.plusDays(i));
+		}
+		
+		List<LocalDate> retainedList = dates;	
+		retainedList.retainAll(this.calendar);
+		
+		if (retainedList.isEmpty()) {
+			 return true;
+		}
+		
+		return false;
 	}
 	
 	public int getBeds() {
@@ -41,26 +62,7 @@ public class Room {
 		}
 	}
 	
-	public int getRoomNumber() {
-		return roomNumber;
-	}
-	
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
-	}
-	
-	public int getFloorNumber() {
-		return floorNumber;
-	}
-	public void setFloorNumber(int floorNumber) {
-		this.floorNumber = floorNumber;
-	}
-	public boolean isAvailable() {
-		return available;
-	}
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
+
 	
 	
 }

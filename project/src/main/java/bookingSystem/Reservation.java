@@ -1,20 +1,39 @@
 package bookingSystem;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reservation {
 	private String regName;
 	private int regAge;
 	private int adults; 
 	private int children;
 	private int nights;
-	private Room roomType;
+	private Room room;
 	
-	public Reservation(String regName, int regAge, int adults, int children, int nights, Room roomType) {
-		this.regName = regName;
-		this.regAge = regAge;
-		this.adults = adults;
-		this.children = children;
-		this.nights = nights;
-		this.roomType = roomType;
+//	public Reservation(String regName, int regAge, int adults, int children, int nights, Room room) {
+//		this.regName = regName;
+//		this.regAge = regAge;
+//		this.adults = adults;
+//		this.children = children;
+//		this.nights = nights;
+//		this.room = room;
+//	
+//	}
+	
+	public void checkIn(LocalDate date, int days) {
+		if (!date.isBefore(LocalDate.now()) && this.room.isAvailable(date, days)) {					//ved gyldig dato:
+			for (int i= 0; i < days; i++) {
+				this.room.calendar.add(date.plusDays(i));		//legg inn datoene i rommets kalender
+			}
+		} else {
+			throw new IllegalArgumentException("Rommet er ikke ledig eller ugyldig dato!");
+		}
+	}
+	
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 	
 	public String getRegName() {
