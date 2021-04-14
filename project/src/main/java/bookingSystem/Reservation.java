@@ -7,19 +7,53 @@ import java.util.List;
 public class Reservation {
 	private String regName;
 	private int regAge;
-	private int persons;
+	private int people;
 	private int nights;
 	private Room room;
+	private LocalDate checkInDate;
 	
-	public Reservation(String regName, int regAge, int persons, int nights, Room room, LocalDate checkInDate) {
+	public Reservation(String regName, int regAge, int people, int nights, Room room, LocalDate checkInDate) {
 		validAgeCheck(regAge);
 		this.regName = regName;
 		this.regAge = regAge;
-		this.persons = persons;
+		this.people = people;
 		this.nights = nights;
 		this.room = room;
 		checkIn (checkInDate, nights);
+	}
 	
+	public Reservation() {}
+	
+	public int getPeople() {
+		return people;
+	}
+	
+	public void setPeople(int people) {
+		this.people = people;
+	}
+
+	public int getNights() {
+		return nights;
+	}
+	
+	public void setNights(int nights) {
+		this.nights = nights;
+	}
+	
+	public void setCheckInDate(LocalDate date) {
+		this.checkInDate = date;
+	}
+	
+	public LocalDate getDate() {
+		return checkInDate;
+	}
+	
+	public Room getRoom() {
+		return room;
+	}
+	
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 	
 	public void checkIn(LocalDate date, int days) {
@@ -51,7 +85,7 @@ public class Reservation {
 	
 //	@Override
 //	public String toString() {
-//		return String.format("Navn: %s, Alder: %d, Antall personer: %d, Antall netter: %d, rom: ", regName, regAge, nights, persons);
+//		return String.format("Navn: %s, Alder: %d, Antall personer: %d, Antall netter: %d, rom: ", regName, regAge, nights, people);
 //	}
 	
 
@@ -59,5 +93,11 @@ public class Reservation {
 		// TODO Auto-generated method stub
 
 	}
+
+	
+
+	
+
+	
 
 }

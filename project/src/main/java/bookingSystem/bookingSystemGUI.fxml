@@ -4,12 +4,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingSystem.bookingController">
@@ -26,7 +30,7 @@
             </Label>
          </children>
       </HBox>
-      <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
                <font>
@@ -35,17 +39,17 @@
             </Button>
             <HBox layoutX="24.0" layoutY="138.0" prefHeight="53.0" prefWidth="581.0">
                <children>
-                  <DatePicker prefHeight="50.0" prefWidth="200.0" promptText="Velg dato" HBox.hgrow="ALWAYS">
+                  <DatePicker fx:id="checkInDate" prefHeight="50.0" prefWidth="200.0" promptText="Velg dato" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="15.0" right="10.0" />
                      </HBox.margin>
                   </DatePicker>
-                  <Spinner editable="true" prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <Spinner fx:id="peopleSpinner" editable="true" prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Spinner>
-                  <Spinner prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <Spinner fx:id="nightsSpinner" prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -84,7 +88,8 @@
       </AnchorPane>
       <AnchorPane fx:id="roomPane" prefHeight="500.0" prefWidth="630.0" visible="false">
          <children>
-            <VBox layoutX="43.0" layoutY="132.0" prefHeight="288.0" prefWidth="540.0">
+          <Button fx:id="btnBack" layoutX="67.0" layoutY="439.0" mnemonicParsing="false" onAction="#checkInPaneShow" prefHeight="25.0" prefWidth="101.0" text="Tilbake" />
+            <VBox layoutX="45.0" layoutY="117.0" prefHeight="288.0" prefWidth="540.0">
                <children>
                   <Pane prefHeight="97.0" prefWidth="540.0">
                      <children>
@@ -99,7 +104,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnRoom1" layoutX="433.0" layoutY="61.0" mnemonicParsing="false" text="Velg rom" />
+                        <RadioButton fx:id="btnRoom1" layoutX="439.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleChooseRoom" text="Velg rom" />
                      </children>
                   </Pane>
                   <Pane prefHeight="97.0" prefWidth="540.0">
@@ -109,13 +114,13 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnRoom2" layoutX="433.0" layoutY="57.0" mnemonicParsing="false" text="Velg rom" />
                         <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutX="130.0" layoutY="38.0" prefHeight="50.0" prefWidth="274.0" text="Ekstra fasiliteter. Dobbelseng eller to enkeltsenger. Romstørrelse: 30 m². Pris per natt: 1495,-" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Label>
+                        <RadioButton fx:id="btnRoom2" layoutX="440.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleChooseRoom" text="Velg rom" />
                      </children>
                   </Pane>
                   <Pane prefHeight="97.0" prefWidth="540.0">
@@ -126,16 +131,74 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnRoom3" layoutX="433.0" layoutY="61.0" mnemonicParsing="false" text="Velg rom" />
                         <Label layoutX="130.0" layoutY="36.0" prefHeight="50.0" prefWidth="274.0" text="Egen espresso maskin på rommet. Kingsize seng Romstørrelse: 35 m². Pris per natt:  1749-,-" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Label>
+                        <RadioButton fx:id="btnRoom3" layoutX="440.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleChooseRoom" text="Velg rom" />
                      </children>
                   </Pane>
                </children>
             </VBox>
+            <Button fx:id="btnRegistration" layoutX="462.0" layoutY="439.0" mnemonicParsing="false" onAction="#registrationPaneShow" prefHeight="25.0" prefWidth="96.0" text="Gå videre" />
+            <Label fx:id="txtFull" layoutX="202.0" layoutY="425.0" prefHeight="53.0" prefWidth="225.0" text="Det er dessverre ingen ledige rom i denne perioden" textAlignment="CENTER" textFill="#950000" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="registrationPane" prefHeight="500.0" prefWidth="630.0" visible="false">
+         <children>
+            <Label layoutX="354.0" layoutY="197.0" prefHeight="17.0" prefWidth="214.0" text="Fornavn:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnBack2" layoutX="63.0" layoutY="437.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" text="Tilbake" />
+            <Label layoutX="354.0" layoutY="260.0" prefHeight="17.0" prefWidth="214.0" text="Etternavn:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="355.0" layoutY="318.0" prefHeight="17.0" prefWidth="214.0" text="Alder: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="354.0" layoutY="100.0" prefHeight="17.0" prefWidth="214.0" text="Registrering:">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="354.0" layoutY="130.0" prefHeight="65.0" prefWidth="207.0" text="Fyll inn kontaktinformasjon til bookingansvarlig. " wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtReservation" editable="false" layoutX="56.0" layoutY="134.0" prefHeight="153.0" prefWidth="225.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <Label layoutX="56.0" layoutY="100.0" prefHeight="17.0" prefWidth="214.0" text="Din reservasjon">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtPrice" editable="false" layoutX="56.0" layoutY="336.0" prefHeight="41.0" prefWidth="225.0" />
+            <Label layoutX="56.0" layoutY="299.0" prefHeight="17.0" prefWidth="214.0" text="Total pris:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCheckIn" layoutX="447.0" layoutY="437.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" text="Fullfør reservasjon" />
+            <Label layoutX="356.0" layoutY="383.0" text="*Den ansvarlige må være minst 18år" />
+            <TextField fx:id="txtFornavn" layoutX="354.0" layoutY="227.0" />
+            <TextField fx:id="txtEtternavn" layoutX="354.0" layoutY="287.0" />
+            <TextField fx:id="txtAlder" layoutX="354.0" layoutY="351.0" />
+            <Line endX="316.1666564941406" endY="104.66666412353516" startX="316.1666564941406" startY="423.9999694824219" stroke="#71727382" />
          </children>
       </AnchorPane>
    </children>
