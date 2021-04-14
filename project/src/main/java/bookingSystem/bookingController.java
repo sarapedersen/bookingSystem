@@ -81,35 +81,6 @@ public class bookingController implements Initializable{
 	    @FXML
 	    private TextField txtFornavn, txtEtternavn, txtAlder;
 
-
-	
-//	@FXML
-//    private AnchorPane checkInPane;
-//	
-//    @FXML
-//    private DatePicker checkInDate;
-//    
-//    @FXML
-//    private Spinner<Integer> peopleSpinner, nightsSpinner;    
-//    
-//    @FXML
-//    private AnchorPane roomPane;
-//
-//    @FXML
-//    private RadioButton  btnRoom1, btnRoom2, btnRoom3;
-//    
-//    @FXML
-//    private AnchorPane registrationPane;
-//    
-//    @FXML
-//    private TextArea txtReservation, txtPrice;
-//
-//    @FXML
-//    private Button btnFindRooms, btnBack, btnBack2, btnShowSummary,btnRegistration, btnCheckIn;
-//
-//    @FXML
-//    private Label txtFull;
-	
 	
 
     
@@ -134,15 +105,52 @@ public class bookingController implements Initializable{
     	txtReservation.setEditable(false);
     }
 
+    
+    /**
+     * deaktiverer knappene på opptatte rom
+     */
+    public void handleUpdateRooms() {
+    	
+    	if (Hotel.standard.isAvailable(reservation.getDate(), reservation.getNights())) {
+    		btnRoom1.disarm();
+    	}
+    	if (!Hotel.superior.isAvailable(reservation.getDate(), reservation.getNights())) {
+    		btnRoom2.disarm();
+    	}
+    	if (!Hotel.premium.isAvailable(reservation.getDate(), reservation.getNights())) {
+    		btnRoom3.disarm();
+    	}
+    	
+    	if (!Hotel.standard.isAvailable(reservation.getDate(), reservation.getNights()) && 
+    			!Hotel.superior.isAvailable(reservation.getDate(), reservation.getNights()) &&		//dersom ingen er ledig
+    			!Hotel.premium.isAvailable(reservation.getDate(), reservation.getNights())) {		//vil det komme en melding 
+    		txtFull.setVisible(true);
+    	}
+    	
+    	else {
+    		btnRoom1.arm();
+    		btnRoom2.arm();
+    		btnRoom3.arm();
+    		txtFull.setVisible(false);
+    		
+    	}
+    	
+    	
+    }
+    
     public void handleChooseRoom() {
     	final ToggleGroup group = new ToggleGroup(); 
     	btnRoom1.setToggleGroup(group);
     	btnRoom1.setSelected(true);
     	btnRoom2.setToggleGroup(group);
     	btnRoom3.setToggleGroup(group);
+    
     	if (btnRoom1.isSelected()) {
-    		reservation.setRoom(Hotel.standard);
-    		System.out.println(Hotel.standard);
+    		reservation.setRoom(Hotel.standard);} 
+    	else if (btnRoom2.isSelected()) {
+    		reservation.setRoom(Hotel.superior);}				//skrive om til switch case ellernoe?
+    	else if (btnRoom3.isSelected()) {
+    		reservation.setRoom(Hotel.premium);
     	}
     
     	

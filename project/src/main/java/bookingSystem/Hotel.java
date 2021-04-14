@@ -17,9 +17,11 @@ import javafx.stage.Stage;
 
 
 public class Hotel extends Application{
-	public static Room standard;
-	public static Room superior;
-	public static Room premium;
+	public static Room standard = new Room("Standardrom", 2, 1049);
+	public static Room superior = new Room("Superior-rom", 4, 1495);
+	public static Room premium = new Room("Premium-rom", 4, 1749);
+	public static List<Room> romtyper = new ArrayList<>();
+	
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -27,19 +29,16 @@ public class Hotel extends Application{
 		primaryStage.setScene(new Scene(FXMLLoader.load(Hotel.class.getResource("bookingSystemGUI.fxml"))));
 		primaryStage.show();
 		
-		
 	}
 	
 	public static void main(String[] args) {
 		Hotel.launch(args);
 		
-		standard = new Room("Standardrom", 2, 1049);
-		superior = new Room("Superior-rom", 4, 1495);
-		premium = new Room("Premium-rom", 4, 1749);
-		
-
-		
-		List<Room> romtyper = new ArrayList<>();
+//		standard = new Room("Standardrom", 2, 1049);
+//		superior = new Room("Superior-rom", 4, 1495);
+//		premium = new Room("Premium-rom", 4, 1749);
+//		
+//		List<Room> romtyper = new ArrayList<>();
 		romtyper.add(standard);
 		romtyper.add(superior);
 		romtyper.add(premium);

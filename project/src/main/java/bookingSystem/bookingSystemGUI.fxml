@@ -30,9 +30,9 @@
             </Label>
          </children>
       </HBox>
-      <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
+            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow"  onMouseClicked="#handleUpdateRooms" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
                <font>
                   <Font name="Times New Roman" size="19.0" />
                </font>
@@ -142,7 +142,7 @@
                </children>
             </VBox>
             <Button fx:id="btnRegistration" layoutX="462.0" layoutY="439.0" mnemonicParsing="false" onAction="#registrationPaneShow" prefHeight="25.0" prefWidth="96.0" text="Gå videre" />
-            <Label fx:id="txtFull" layoutX="202.0" layoutY="425.0" prefHeight="53.0" prefWidth="225.0" text="Det er dessverre ingen ledige rom i denne perioden" textAlignment="CENTER" textFill="#950000" wrapText="true">
+            <Label fx:id="txtFull" layoutX="202.0" layoutY="425.0" prefHeight="53.0" prefWidth="225.0" text="Det er dessverre ingen ledige rom i denne perioden" textAlignment="CENTER" textFill="#950000" visible="false" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -156,7 +156,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnBack2" layoutX="63.0" layoutY="437.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" text="Tilbake" />
+            <Button fx:id="btnBack2" layoutX="63.0" layoutY="437.0" mnemonicParsing="false" onAction="#roomPaneShow" prefHeight="27.0" prefWidth="118.0" text="Tilbake" />
             <Label layoutX="354.0" layoutY="260.0" prefHeight="17.0" prefWidth="214.0" text="Etternavn:">
                <font>
                   <Font size="20.0" />
