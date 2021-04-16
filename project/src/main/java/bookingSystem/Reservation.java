@@ -11,6 +11,7 @@ public class Reservation {
 	private int nights;
 	private Room room;
 	private LocalDate checkInDate;
+	private int totalPrice;
 	
 //	public Reservation(String regName, int regAge, int people, int nights, Room room, LocalDate checkInDate) {
 //		validAgeCheck(regAge);
@@ -75,7 +76,32 @@ public class Reservation {
 	public int getRegAge() {
 		return regAge;
 	}
+	
+	public void caluculateTotalPrice() {
+		//hvis tallet går opp blir antall rom lik personer delt på senger
+		//hvis ikke (altså % != 0) så skal antall rom bli lik (x%y) + (x/y)
+		
+		int numberOfRooms;
+		int resten = this.getPeople() % this.getRoom().getBeds();
+		int div = this.getPeople() / this.getRoom().getBeds();
+		
+		if (resten == 0) {
+			numberOfRooms = this.getPeople() / this.getRoom().getBeds();
+		}
+		else {
+			numberOfRooms = div + 1;
+		}
+//		System.out.println("Antall rom: " + numberOfRooms + " | resten: " + resten + " | div: " + div);
+		this.setTotalPrice(numberOfRooms*this.getRoom().getPricePerNight()*this.getNights());
+	}
 
+	public int getTotalPrice() {
+		return this.totalPrice;
+	}
+	
+	public void setTotalPrice(int price) {
+		this.totalPrice = price;
+	}
 	
 	public void validAgeCheck(int age) {
 		if (age < 18 || age > 100) {

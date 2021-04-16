@@ -32,7 +32,7 @@
       </HBox>
       <AnchorPane fx:id="checkInPane" prefHeight="500.0" prefWidth="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow"  onMouseClicked="#handleUpdateRooms" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
+            <Button fx:id="btnFindRooms" layoutX="438.0" layoutY="413.0" mnemonicParsing="false" onAction="#roomPaneShow" onMouseClicked="#handleUpdateRooms" prefHeight="41.0" prefWidth="157.0" text="Finn ledige rom">
                <font>
                   <Font name="Times New Roman" size="19.0" />
                </font>
@@ -187,8 +187,11 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="txtPrice" editable="false" layoutX="56.0" layoutY="336.0" prefHeight="41.0" prefWidth="225.0" />
-            <Label layoutX="56.0" layoutY="299.0" prefHeight="17.0" prefWidth="214.0" text="Total pris:">
+            <TextArea fx:id="txtPrice" editable="false" layoutX="161.0" layoutY="314.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="120.0">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
+            <Label layoutX="56.0" layoutY="318.0" prefHeight="30.0" prefWidth="96.0" text="Total pris:">
                <font>
                   <Font size="20.0" />
                </font>

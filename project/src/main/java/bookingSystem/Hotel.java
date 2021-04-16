@@ -21,7 +21,6 @@ public class Hotel {
 	
 	
 	public static void main(String[] args) {
-		
 		romtyper.add(standard);
 		romtyper.add(superior);
 		romtyper.add(premium);

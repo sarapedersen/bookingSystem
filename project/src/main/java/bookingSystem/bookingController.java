@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+//import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -17,7 +17,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+//import javafx.scene.layout.Pane;
 
 public class bookingController implements Initializable{
 	
@@ -70,12 +70,14 @@ public class bookingController implements Initializable{
     }
     
     public void registrationPaneShow() {
+    	reservation.caluculateTotalPrice();
     	roomPane.setVisible(false);
     	registrationPane.setVisible(true);
     	txtReservation.setText("Antall personer: " + reservation.getPeople() + "\nAntall netter: " 
     							+ reservation.getNights() + "\nDato for innsjekk: " + reservation.getDate()
     							+ "\nValgt rom: "+ reservation.getRoom());
     	txtReservation.setEditable(false);
+    	txtPrice.setText(String.valueOf(reservation.getTotalPrice()));
     }
 
     
@@ -106,6 +108,13 @@ public class bookingController implements Initializable{
     		btnRoom3.arm();
     		txtFull.setVisible(false);
     	}
+    	
+    	final int people = peopleSpinner.getValue();
+    	final int nights = nightsSpinner.getValue();
+    	final LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
+    	reservation.setPeople(people);
+    	reservation.setNights(nights);
+    	reservation.setCheckInDate(date);
     }
     
     public void handleChooseRoom() {
@@ -118,19 +127,18 @@ public class bookingController implements Initializable{
     	if (btnRoom1.isSelected()) {
     		reservation.setRoom(Hotel.standard);} 
     	else if (btnRoom2.isSelected()) {
-    		reservation.setRoom(Hotel.superior);}				//skrive om til switch case ellernoe?
+    		reservation.setRoom(Hotel.superior);}				
     	else if (btnRoom3.isSelected()) {
     		reservation.setRoom(Hotel.premium);
     	}
-    
     	
-    	final int people = peopleSpinner.getValue();
-    	final int nights = nightsSpinner.getValue();
-    	final LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
-    	reservation.setPeople(people);
-    	reservation.setNights(nights);
-    	reservation.setCheckInDate(date);
-    	reservation.getDate();
+//    	final int people = peopleSpinner.getValue();
+//    	final int nights = nightsSpinner.getValue();
+//    	final LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
+//    	reservation.setPeople(people);
+//    	reservation.setNights(nights);
+//    	reservation.setCheckInDate(date);
+//    	reservation.caluculateTotalPrice();
    
     }
     
