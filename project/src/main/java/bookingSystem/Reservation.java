@@ -12,15 +12,15 @@ public class Reservation {
 	private Room room;
 	private LocalDate checkInDate;
 	
-	public Reservation(String regName, int regAge, int people, int nights, Room room, LocalDate checkInDate) {
-		validAgeCheck(regAge);
-		this.regName = regName;
-		this.regAge = regAge;
-		this.people = people;
-		this.nights = nights;
-		this.room = room;
-		checkIn (checkInDate, nights);
-	}
+//	public Reservation(String regName, int regAge, int people, int nights, Room room, LocalDate checkInDate) {
+//		validAgeCheck(regAge);
+//		this.regName = regName;
+//		this.regAge = regAge;
+//		this.people = people;
+//		this.nights = nights;
+//		this.room = room;
+//		checkIn (checkInDate, nights);
+//	}
 	
 	public Reservation() {}
 	

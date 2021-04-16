@@ -8,14 +8,13 @@ public class Room {
 	private String title;
 	private int beds;
 	private int pricePerNight;
-//	private String description;
 	protected List<LocalDate> calendar = new ArrayList<>();			//Rommets opptatte dager
 	
+	//teste konstruktør
 	public Room(String title, int beds, int pricePerNight) {
 		this.title = title;
 		this.beds = beds;
 		this.pricePerNight = pricePerNight;
-//		this.description = description;
 	}
 	
 	public Room() {
@@ -43,24 +42,25 @@ public class Room {
 		return beds;
 	}
 	
-//	public void setBeds(int beds) {
-//		if (beds > 0) {
-//			this.beds = beds;
-//		} else {
-//			throw new IllegalArgumentException("There must be at least one bed per room");
-//		}
-//	}
+	public void setBeds(int beds) {
+		if (beds > 0) {
+			this.beds = beds;
+		} else {
+			throw new IllegalArgumentException("There must be at least one bed per room");
+		}
+	}
 	
 	public double getPricePerNight() {
 		return pricePerNight;
 	}
-//	public void setPricePerNight(int pricePerNight) {
-//		if (pricePerNight >= 0) {
-//			this.pricePerNight = pricePerNight;
-//		} else {
-//			throw new IllegalArgumentException("The price per night can not be negative!");
-//		}
-//	}
+	
+	public void setPricePerNight(int pricePerNight) {
+		if (pricePerNight >= 0) {
+			this.pricePerNight = pricePerNight;
+		} else {
+			throw new IllegalArgumentException("The price per night can not be negative!");
+		}
+	}
 	
 	@Override
 	public String toString() {

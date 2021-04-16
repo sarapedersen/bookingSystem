@@ -2,20 +2,16 @@ package bookingSystem;
 
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.stream.Collectors;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-//import java.time.LocalDate;
-//import java.time.Month;
 
-//Klasse for å holde styr på tilstanden til de forskjellige rommene og lagring av data. 
 //(Når det gjøres en reservasjon vil dataene havne her?) 
 
-
+/**Klasse for å holde styr på tilstanden til de forskjellige rommene og lagring av data.
+ * 
+ * For utvidelese av bookingsystemet kunne det vært en tanke å ha et Hotell-interface som implementeres på de forskjellige hotellene
+ * Slik at hvert hotell har en egen klasse.
+ */
 public class Hotel {
 	public static Room standard = new Room("Standardrom", 2, 1049);
 	public static Room superior = new Room("Superior-rom", 4, 1495);
@@ -23,36 +19,12 @@ public class Hotel {
 	public static List<Room> romtyper = new ArrayList<>();
 	
 	
-//	@Override
-//	public void start(Stage primaryStage) throws Exception {
-//		primaryStage.setTitle("Hotell Eclipse");
-//		primaryStage.setScene(new Scene(FXMLLoader.load(Hotel.class.getResource("bookingSystemGUI.fxml"))));
-//		primaryStage.show();
-//		
-//	}
 	
 	public static void main(String[] args) {
-//		Hotel.launch(args);
 		
-//		standard = new Room("Standardrom", 2, 1049);
-//		superior = new Room("Superior-rom", 4, 1495);
-//		premium = new Room("Premium-rom", 4, 1749);
-//		
-//		List<Room> romtyper = new ArrayList<>();
 		romtyper.add(standard);
 		romtyper.add(superior);
 		romtyper.add(premium);
-		
-//		List<Room> filtrert =												Bare testing av streams?
-//				romtyper.stream()
-//				.filter(Room -> Room.getPricePerNight() < 1500)
-//				.collect(Collectors.toList());
-//		System.out.println(filtrert);
-				
-		
-//		Reservation r1 = new Reservation("Sara", 22, 2, 4, standard, LocalDate.of(2021, Month.MARCH, 20));    //Test av konstruktør
-		
-		
 		
 	}
 

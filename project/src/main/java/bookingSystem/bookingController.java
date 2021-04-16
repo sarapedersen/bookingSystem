@@ -23,15 +23,15 @@ public class bookingController implements Initializable{
 	
 	private Reservation reservation;
 	
-	public void setReservation(final Reservation reservation) {				//hvorfor final?
+	public void setReservation(final Reservation reservation) {				//final? - prøver uten!
 		this.reservation = reservation;
 	}
 	
 	 @FXML
-	    private AnchorPane checkInPane;
+	    private AnchorPane checkInPane, roomPane, registrationPane;
 
 	    @FXML
-	    private Button btnFindRooms;
+	    private Button btnFindRooms, btnBack, btnBack2, btnRegistration, btnCheckIn;
 
 	    @FXML
 	    private DatePicker checkInDate;
@@ -43,40 +43,13 @@ public class bookingController implements Initializable{
 	    private Spinner<Integer> nightsSpinner;
 
 	    @FXML
-	    private AnchorPane roomPane;
-
-	    @FXML
-	    private Button btnBack;
-
-	    @FXML
-	    private RadioButton btnRoom1;
-
-	    @FXML
-	    private RadioButton btnRoom2;
-
-	    @FXML
-	    private RadioButton btnRoom3;
-
-	    @FXML
-	    private Button btnRegistration;
+	    private RadioButton btnRoom1, btnRoom2, btnRoom3;
 
 	    @FXML
 	    private Label txtFull;
 
 	    @FXML
-	    private AnchorPane registrationPane;
-
-	    @FXML
-	    private Button btnBack2;
-
-	    @FXML
-	    private TextArea txtReservation;
-
-	    @FXML
-	    private TextArea txtPrice;
-
-	    @FXML
-	    private Button btnCheckIn;
+	    private TextArea txtReservation, txtPrice;
 	    
 	    @FXML
 	    private TextField txtFornavn, txtEtternavn, txtAlder;
@@ -132,10 +105,7 @@ public class bookingController implements Initializable{
     		btnRoom2.arm();
     		btnRoom3.arm();
     		txtFull.setVisible(false);
-    		
     	}
-    	
-    	
     }
     
     public void handleChooseRoom() {
@@ -156,7 +126,7 @@ public class bookingController implements Initializable{
     	
     	final int people = peopleSpinner.getValue();
     	final int nights = nightsSpinner.getValue();
-    	LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
+    	final LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
     	reservation.setPeople(people);
     	reservation.setNights(nights);
     	reservation.setCheckInDate(date);
@@ -168,7 +138,7 @@ public class bookingController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		checkInPaneShow();
-		final var reservation = new Reservation();
+		reservation = new Reservation();
 		setReservation(reservation);
 		
 		//Configure the Spinners with values 
