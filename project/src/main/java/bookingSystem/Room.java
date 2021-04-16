@@ -50,7 +50,7 @@ public class Room {
 		}
 	}
 	
-	public double getPricePerNight() {
+	public int getPricePerNight() {
 		return pricePerNight;
 	}
 	

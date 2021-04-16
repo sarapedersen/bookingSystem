@@ -131,15 +131,6 @@ public class bookingController implements Initializable{
     	else if (btnRoom3.isSelected()) {
     		reservation.setRoom(Hotel.premium);
     	}
-    	
-//    	final int people = peopleSpinner.getValue();
-//    	final int nights = nightsSpinner.getValue();
-//    	final LocalDate date = checkInDate.getValue();		//usikker på om det burde stå final her?
-//    	reservation.setPeople(people);
-//    	reservation.setNights(nights);
-//    	reservation.setCheckInDate(date);
-//    	reservation.caluculateTotalPrice();
-   
     }
     
     

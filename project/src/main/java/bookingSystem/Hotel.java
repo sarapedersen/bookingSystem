@@ -1,7 +1,11 @@
 package bookingSystem;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import minegenkode.Dog;
 
 
 
@@ -17,7 +21,7 @@ public class Hotel {
 	public static Room superior = new Room("Superior-rom", 4, 1495);
 	public static Room premium = new Room("Premium-rom", 4, 1749);
 	public static List<Room> romtyper = new ArrayList<>();
-	
+
 	
 	
 	public static void main(String[] args) {
